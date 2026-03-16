@@ -1,0 +1,20 @@
+# 依赖包
+node_modules/
+**/node_modules/
+
+# Astro 相关
+.astro/
+dist/
+
+# Sanity / Server 相关
+.env
+.env.*
+server/logs/
+
+# 编译产物与临时文件
+*.zip
+*.log
+.DS_Store
+
+# 排除根目录下的执行包（如你截图里的 Execute Action.zip）
+*.zip

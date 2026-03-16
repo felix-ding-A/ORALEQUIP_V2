@@ -1,0 +1,85 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/products', label: 'Products' },
+  { href: '/blog', label: 'Blog & Insights' },
+  { href: '/about', label: 'About Us' },
+];
+---
+
+<footer class="bg-[#2D2424] text-white/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-9 h-9 bg-[var(--primary)] rounded-xl flex items-center justify-center text-xl">
+            🦷
+          </div>
+          <span class="text-white text-xl font-bold">
+            oral<span class="text-[var(--primary)]">equip</span>
+          </span>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed mb-4">
+          Premium dental supplies recommended by HI SMILE DENTAL doctors.
+          Quality materials for dental professionals worldwide.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-white mb-4 font-semibold">Quick Links</h4>
+        <ul class="space-y-2">
+          {links.map((l) => (
+            <li>
+              <a href={l.href} class="text-white/60 hover:text-[var(--primary)] transition-colors text-sm">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-white mb-4 font-semibold">Contact Us</h4>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-[var(--primary)] mt-0.5 shrink-0">📍</span>
+            <span class="text-white/60">HI SMILE DENTAL, Suite 400, Los Angeles, CA 90012</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[var(--primary)] shrink-0">📞</span>
+            <span class="text-white/60">+1 (800) 555-ORAL</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-[var(--primary)] shrink-0">✉️</span>
+            <a href="mailto:info@oralequip.com" class="text-white/60 hover:text-[var(--primary)] transition-colors">
+              info@oralequip.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter CTA -->
+      <div>
+        <h4 class="text-white mb-4 font-semibold">Get in Touch</h4>
+        <p class="text-white/60 mb-4 text-sm">
+          Send us your inquiry and we'll respond within 24 hours.
+        </p>
+        <a
+          href="mailto:info@oralequip.com"
+          class="inline-block w-full text-center bg-[var(--primary)] text-white px-4 py-2.5 rounded-xl hover:opacity-90 transition-opacity text-sm font-semibold"
+        >
+          Send a Message
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 mt-12 pt-8 text-center text-white/40 text-sm">
+      <p>&copy; 2026 OralEquip.com — A HI SMILE DENTAL Initiative. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

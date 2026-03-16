@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oralequip.com/sitemap-index.xml

@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+@theme {
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-border: var(--border);
+    --color-ring: var(--ring);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --font-family-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+    html {
+        font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+        font-size: var(--font-size);
+        background-color: var(--background);
+        color: var(--foreground);
+    }
+
+    h1 {
+        font-weight: var(--font-weight-medium);
+        line-height: 1.5;
+    }
+
+    h2 {
+        font-weight: var(--font-weight-medium);
+        line-height: 1.5;
+    }
+
+    h3 {
+        font-weight: var(--font-weight-medium);
+        line-height: 1.5;
+    }
+
+    h4 {
+        font-weight: var(--font-weight-medium);
+        line-height: 1.5;
+    }
+
+    * {
+        border-color: var(--border);
+        box-sizing: border-box;
+    }
+}

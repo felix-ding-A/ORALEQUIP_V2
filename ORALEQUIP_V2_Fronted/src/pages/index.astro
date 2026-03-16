@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'OralEquip — HI SMILE DENTAL',
+    url: 'https://oralequip.com',
+    logo: 'https://oralequip.com/favicon.svg',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'info@oralequip.com',
+      contactType: 'customer support',
+    },
+    sameAs: [],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'OralEquip',
+    url: 'https://oralequip.com',
+    description: 'B2B dental supplies recommended by HI SMILE DENTAL doctors. Premium instruments, equipment, and consumables.',
+  },
+];
+
+const categories = [
+  {
+    title: 'Instruments',
+    desc: 'Precision tools for every procedure',
+    icon: '🔬',
+    color: '#EFF6FF',
+    iconBg: '#DBEAFE',
+  },
+  {
+    title: 'Equipment',
+    desc: 'Advanced dental technology',
+    icon: '⚙️',
+    color: '#F0FDF4',
+    iconBg: '#DCFCE7',
+  },
+  {
+    title: 'Consumables',
+    desc: 'Quality materials that last',
+    icon: '📦',
+    color: '#FFF0F6',
+    iconBg: '#FCE7F3',
+  },
+];
+
+const trustPillars = [
+  { icon: '🏆', label: 'Clinic-Tested', desc: 'Every product approved by our doctors' },
+  { icon: '🛡️', label: 'Quality Assured', desc: 'Rigorous material testing standards' },
+  { icon: '❤️', label: 'Patient-First', desc: 'Designed for better outcomes' },
+];
+---
+
+<BaseLayout
+  title="OralEquip — Clinic-Tested Dental Supplies | B2B Dental Equipment & Consumables"
+  description="Premium dental instruments, equipment & consumables handpicked by HI SMILE DENTAL doctors. Trusted by 500+ clinics worldwide. Request a B2B quote today."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <main>
+    <!-- ═══ HERO SECTION ═══ -->
+    <section class="relative overflow-hidden" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--background) 50%, #E8F5E9 100%);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Left: Copy -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-sm font-medium" style="background: var(--primary)1a; color: var(--primary); background-color: rgba(77,182,172,0.12);">
+              🛡️ Trusted by 500+ dental clinics
+            </div>
+            <h1 class="text-[var(--foreground)] mb-6 font-bold" style="font-size: clamp(28px, 4vw, 48px); line-height: 1.2;">
+              Premium Dental Supplies Recommended by{' '}
+              <span class="text-[var(--primary)]">HI SMILE DENTAL</span> Doctors
+            </h1>
+            <p class="text-[var(--muted-foreground)] mb-8" style="font-size: 18px; line-height: 1.7;">
+              Discover clinic-tested dental instruments, equipment, and consumables — handpicked by practicing dentists for outstanding patient outcomes.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="/products"
+                class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl hover:opacity-90 transition-opacity font-semibold"
+                style="background: var(--primary);"
+              >
+                Explore Products →
+              </a>
+              <a
+                href="/about"
+                class="inline-flex items-center gap-2 bg-white text-[var(--foreground)] px-6 py-3 rounded-xl border hover:bg-[var(--muted)] transition-colors font-medium"
+              >
+                Our Story
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Image -->
+          <div class="relative">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white" style="box-shadow: 0 25px 50px rgba(77,182,172,0.15);">
+              <img
+                src="https://images.unsplash.com/photo-1675526607070-f5cbd71dde92?w=800&q=80"
+                alt="Friendly dentist at HI SMILE DENTAL smiling with patient"
+                class="w-full object-cover"
+                style="height: 400px;"
+                loading="eager"
+                fetchpriority="high"
+                width="800"
+                height="400"
+              />
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-5 py-3 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl" style="background: var(--accent);">
+                ⭐
+              </div>
+              <div>
+                <p class="text-[var(--foreground)] font-bold text-sm">4.9/5 Rating</p>
+                <p class="text-[var(--muted-foreground)] text-xs">From dental professionals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Decorative blobs -->
+      <div class="absolute top-20 right-0 w-72 h-72 rounded-full pointer-events-none blur-3xl" style="background: rgba(77,182,172,0.06);"></div>
+      <div class="absolute bottom-0 left-20 w-48 h-48 rounded-full pointer-events-none blur-3xl" style="background: rgba(255,224,130,0.2);"></div>
+    </section>
+
+    <!-- ═══ TRUST / HI SMILE DENTAL SECTION ═══ -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 text-4xl" style="background: rgba(255,224,130,0.35);">
+          🦷
+        </div>
+        <h2 class="text-[var(--foreground)] mb-4 font-bold" style="font-size: clamp(22px, 3vw, 32px);">
+          Created by <span class="text-[var(--primary)]">HI SMILE DENTAL</span>
+        </h2>
+        <p class="text-[var(--muted-foreground)] max-w-2xl mx-auto" style="font-size: 18px; line-height: 1.7;">
+          We started as a dental clinic. Our doctors tested hundreds of products and selected only the best.
+          Now, we share these carefully vetted materials with dentists worldwide — because every patient deserves
+          the highest quality care.
+        </p>
+        <div class="flex flex-wrap justify-center gap-8 mt-10">
+          {trustPillars.map((item) => (
+            <div class="flex flex-col items-center gap-2" style="width: 180px;">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style="background: rgba(77,182,172,0.1);">
+                {item.icon}
+              </div>
+              <p class="text-[var(--foreground)] font-semibold text-sm">{item.label}</p>
+              <p class="text-[var(--muted-foreground)] text-sm text-center">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CATEGORY GRID ═══ -->
+    <section class="py-16 md:py-20" style="background: var(--background);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-[var(--foreground)] mb-3 font-bold" style="font-size: clamp(22px, 3vw, 32px);">
+            Browse Our Categories
+          </h2>
+          <p class="text-[var(--muted-foreground)]">Find exactly what your practice needs</p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-6">
+          {categories.map((cat) => (
+            <a
+              href="/products"
+              class="group rounded-2xl p-8 text-center hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[var(--border)]"
+              style={`background: ${cat.color};`}
+            >
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl group-hover:scale-110 transition-transform" style={`background: ${cat.iconBg};`}>
+                {cat.icon}
+              </div>
+              <h3 class="text-[var(--foreground)] mb-2 font-semibold">{cat.title}</h3>
+              <p class="text-[var(--muted-foreground)] text-sm">{cat.desc}</p>
+              <div class="mt-4 inline-flex items-center gap-1 text-sm font-medium" style="color: var(--primary);">
+                Explore →
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SEO CONTENT AREA ═══ -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-[var(--foreground)] mb-6 font-bold" style="font-size: clamp(20px, 2.5vw, 28px);">
+          Why Dental Professionals Choose OralEquip
+        </h2>
+        <div class="space-y-4 text-[var(--muted-foreground)]" style="line-height: 1.8;">
+          <p>
+            In the rapidly evolving world of dental care, having access to reliable, high-quality supplies is paramount.
+            OralEquip was born from the real-world experience of <strong class="text-[var(--foreground)]">HI SMILE DENTAL</strong> — a clinic that understands the
+            challenges dentists face daily. Our curated selection spans precision instruments, state-of-the-art
+            equipment, and essential consumables, all rigorously tested in clinical settings.
+          </p>
+          <p>
+            Whether you're outfitting a new practice or upgrading your existing toolkit, our B2B platform makes it easy
+            to request quotes on bulk orders. We work directly with manufacturers to ensure competitive pricing without
+            compromising the quality standards that dental professionals expect. Every product in our catalog has
+            been vetted and approved by practicing dentists at HI SMILE DENTAL.
+          </p>
+          <p>
+            From composite resins and bonding agents to digital imaging equipment and ergonomic hand instruments, we
+            cover the full spectrum of dental supply needs. Join hundreds of clinics worldwide that trust OralEquip for
+            their procurement needs. Request a quote today and experience the difference that clinic-tested supplies
+            can make in your practice.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

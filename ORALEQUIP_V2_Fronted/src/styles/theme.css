@@ -1,0 +1,27 @@
+/* OralEquip Design Tokens — ported from Figma */
+:root {
+  --font-size: 16px;
+  --background: #FFF9F5;
+  --foreground: #3D3535;
+  --card: #FFFFFF;
+  --card-foreground: #3D3535;
+  --popover: #FFFFFF;
+  --popover-foreground: #3D3535;
+  --primary: #4DB6AC;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFF3E0;
+  --secondary-foreground: #3D3535;
+  --muted: #F5F0EB;
+  --muted-foreground: #8B7E74;
+  --accent: #FFE082;
+  --accent-foreground: #3D3535;
+  --destructive: #E57373;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(139, 126, 116, 0.15);
+  --input-background: #FFF9F5;
+  --switch-background: #D7CFC7;
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --ring: #4DB6AC;
+  --radius: 0.875rem;
+}
