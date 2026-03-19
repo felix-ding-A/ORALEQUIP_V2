@@ -1,16 +1,17 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
+import { table } from '@sanity/table'
 import { schemaTypes } from './schemaTypes'
 
 export default defineConfig({
     name: 'default',
     title: 'OralEquip Studio',
 
-    // !! REPLACE WITH YOUR ACTUAL PROJECT ID !!
-    projectId: 'YOUR_PROJECT_ID',
-    dataset: 'production',
+    // Using Vite environment variables in Sanity Studio v3
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+    dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
-    plugins: [structureTool()],
+    plugins: [structureTool(), table()],
 
     schema: {
         types: schemaTypes,

@@ -4,6 +4,13 @@ export const post = defineType({
     name: 'post',
     title: 'Blog Post',
     type: 'document',
+    fieldsets: [
+        {
+            name: 'seo',
+            title: 'SEO & Meta',
+            options: { collapsible: true, collapsed: false }
+        }
+    ],
     fields: [
         defineField({
             name: 'title',
@@ -65,10 +72,48 @@ export const post = defineType({
             initialValue: false,
         }),
         defineField({
+            name: 'seoTitle',
+            title: 'SEO Title',
+            type: 'string',
+            description: 'Provide an SEO-friendly title (recommended 50-60 characters).',
+            validation: (Rule) => Rule.max(60).warning('SEO Titles should usually be under 60 characters.'),
+            fieldset: 'seo',
+        }),
+        defineField({
+            name: 'seoDescription',
+            title: 'SEO Description',
+            type: 'text',
+            rows: 3,
+            description: 'Provide an SEO-friendly meta description (recommended 150-160 characters).',
+            validation: (Rule) => Rule.max(160).warning('SEO Descriptions should usually be under 160 characters.'),
+            fieldset: 'seo',
+        }),
+        defineField({
             name: 'body',
             title: 'Body',
             type: 'array',
-            of: [{ type: 'block' }, { type: 'image' }],
+            of: [
+                { type: 'block' },
+                {
+                    type: 'image',
+                    options: { hotspot: true },
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative Text',
+                            description: 'Important for SEO and accessibility.',
+                        },
+                        {
+                            name: 'caption',
+                            type: 'string',
+                            title: 'Caption',
+                            description: 'Displayed below the image.',
+                        }
+                    ]
+                },
+                { type: 'table' }
+            ],
         }),
     ],
 })
