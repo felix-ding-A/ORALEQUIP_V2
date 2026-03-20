@@ -5,21 +5,21 @@ import Footer from '../../components/Footer.astro';
 import { ProductDetail } from '../../components/ProductDetail';
 import { sanityClient } from '../../utils/sanity';
 
-const query = `*[_type == "product"] {
-  _id,
-  title,
-  slug,
-  category,
-  material,
-  image { "url": asset->url, alt },
-  gallery[] { "url": asset->url, alt },
-  description,
-  specs,
-  clinicalApplications,
-  features
-}`;
-
 export async function getStaticPaths() {
+  const query = `*[_type == "product"] {
+    _id,
+    title,
+    slug,
+    category,
+    material,
+    image { "url": asset->url, alt },
+    gallery[] { "url": asset->url, alt },
+    description,
+    specs,
+    clinicalApplications,
+    features
+  }`;
+
   const products = await sanityClient.fetch(query);
   return products.map((product: any) => ({
     params: { slug: product.slug.current },
