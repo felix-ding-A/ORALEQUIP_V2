@@ -2,10 +2,26 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
-import { blogPosts } from '../../data/posts';
+import { sanityClient } from '../../utils/sanity';
 
-const featured = blogPosts.find((p) => p.featured);
-const rest = blogPosts.filter((p) => !p.featured);
+// Fetch live blog posts from Sanity Backend
+const blogPosts = await sanityClient.fetch(`*[_type == "post"] | order(_createdAt desc) {
+  title,
+  slug,
+  excerpt,
+  author,
+  clinic,
+  date,
+  readTime,
+  featured,
+  image {
+    "url": asset->url,
+    alt
+  }
+}`);
+
+const featured = blogPosts.find((p: any) => p.featured);
+const rest = blogPosts.filter((p: any) => !p.featured);
 
 const trendingTopics = [
   'Digital Impressions', '3D Printing', 'AI in Dentistry',
