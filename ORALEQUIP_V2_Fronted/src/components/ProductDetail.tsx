@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PortableText } from '@portabletext/react';
+import RichText from './RichText';
 import type { Product } from '../types';
 
 interface Props {
@@ -17,7 +17,7 @@ type TabKey = typeof TABS[number]['key'];
 
 export function ProductDetail({ product, related }: Props) {
     const [activeTab, setActiveTab] = useState<TabKey>('specs');
-    const gallery = product.gallery?.length ? product.gallery : [product.image];
+    const gallery = product.gallery?.length ? product.gallery : (product.image ? [product.image] : []);
     const [selectedImage, setSelectedImage] = useState(0);
 
     return (
@@ -68,7 +68,7 @@ export function ProductDetail({ product, related }: Props) {
                     </h1>
 
                     <div className="text-base mb-8 leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-                        <PortableText value={product.description} />
+                        <RichText value={product.description} />
                     </div>
 
                     <a
@@ -109,7 +109,7 @@ export function ProductDetail({ product, related }: Props) {
                 <div className="p-6 md:p-8">
                     {activeTab === 'specs' && (
                         <div className="space-y-4">
-                            {product.specs.map((spec) => (
+                            {(product.specs || []).map((spec: any) => (
                                 <div
                                     key={spec.label}
                                     className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 py-2 border-b last:border-0"
@@ -123,7 +123,7 @@ export function ProductDetail({ product, related }: Props) {
                     )}
                     {activeTab === 'clinical' && (
                         <ul className="space-y-3">
-                            {product.clinicalApplications.map((app, i) => (
+                            {(product.clinicalApplications || []).map((app: any, i) => (
                                 <li key={i} className="flex items-start gap-3">
                                     <div
                                         className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs"
@@ -138,7 +138,7 @@ export function ProductDetail({ product, related }: Props) {
                     )}
                     {activeTab === 'features' && (
                         <ul className="space-y-3">
-                            {product.features.map((feat, i) => (
+                            {(product.features || []).map((feat: any, i) => (
                                 <li key={i} className="flex items-start gap-3">
                                     <div
                                         className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-sm"

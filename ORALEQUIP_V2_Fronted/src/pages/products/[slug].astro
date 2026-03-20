@@ -3,17 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import { ProductDetail } from '../../components/ProductDetail';
-import { products } from '../../data/products';
+import { sanityClient } from '../../utils/sanity';
 
-export function getStaticPaths() {
-  return products.map((product) => ({
+const query = `*[_type == "product"] {
+  _id,
+  title,
+  slug,
+  category,
+  material,
+  image { "url": asset->url, alt },
+  gallery[] { "url": asset->url, alt },
+  description,
+  specs,
+  clinicalApplications,
+  features
+}`;
+
+export async function getStaticPaths() {
+  const products = await sanityClient.fetch(query);
+  return products.map((product: any) => ({
     params: { slug: product.slug.current },
-    props: { product },
+    props: { product, allProducts: products },
   }));
 }
 
-const { product } = Astro.props;
-const related = products.filter((p) => p._id !== product._id).slice(0, 4);
+const { product, allProducts } = Astro.props;
+const related = allProducts.filter((p: any) => p._id !== product._id).slice(0, 4);
 
 const productJsonLd = {
   '@context': 'https://schema.org',
