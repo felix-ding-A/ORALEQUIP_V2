@@ -39,13 +39,23 @@ const breadcrumbJsonLd = {
 ---
 
 <BaseLayout
-  title="Dental Blog & Industry Insights | OralEquip — HI SMILE DENTAL"
-  description="Expert dental insights, clinical guides, and industry trends from HI SMILE DENTAL doctors. Stay ahead in modern dentistry with OralEquip's professional blog."
+  title="Dental Industry Blog & Clinical Purchasing Insights | ORALEQUIP"
+  description="Stay informed with the latest dental industry trends, clinical workflow tips, and expert purchasing guides for professional consumables and compact clinic devices."
   jsonLd={breadcrumbJsonLd}
 >
   <Navbar />
 
   <main class="min-h-screen" style="background: var(--background);">
+
+    <!-- Page Header -->
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 mt-4 text-center">
+      <h1 class="font-bold text-[var(--foreground)]" style="font-size: clamp(28px, 4vw, 48px); line-height: 1.2;">
+        Dental Industry Insights & Expert Resources
+      </h1>
+      <p class="mt-4 text-lg text-[var(--muted-foreground)] max-w-3xl mx-auto">
+        Stay informed with the latest dental industry trends, clinical workflow tips, and expert purchasing guides.
+      </p>
+    </header>
 
     <!-- Featured Article Hero -->
     {featured && (
@@ -59,12 +69,12 @@ const breadcrumbJsonLd = {
               >
                 ⭐ Featured Article
               </span>
-              <h1
+              <h2
                 class="font-bold mb-4"
                 style="color: var(--foreground); font-size: clamp(24px, 3.5vw, 40px); line-height: 1.2;"
               >
                 {featured.title}
-              </h1>
+              </h2>
               <p class="mb-6" style="color: var(--muted-foreground); font-size: 18px; line-height: 1.7;">
                 {featured.excerpt}
               </p>
