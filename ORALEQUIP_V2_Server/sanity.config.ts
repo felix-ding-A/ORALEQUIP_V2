@@ -8,7 +8,7 @@ export default defineConfig({
     title: 'OralEquip Studio',
 
     // Using Vite environment variables in Sanity Studio v3
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '6ehbsvke',
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
     dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
     plugins: [structureTool(), table()],
