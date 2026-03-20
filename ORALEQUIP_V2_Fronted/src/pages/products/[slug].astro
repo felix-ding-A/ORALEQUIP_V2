@@ -35,7 +35,7 @@ const productJsonLd = {
   '@type': 'Product',
   name: product.title,
   description: product.description[0]?.children[0]?.text ?? '',
-  brand: { '@type': 'Brand', name: 'OralEquip — HI SMILE DENTAL' },
+  brand: { '@type': 'Brand', name: 'OralEquip — ORALEQUIP' },
   image: product.image.url,
   category: product.category,
   offers: {
@@ -59,7 +59,7 @@ const breadcrumbJsonLd = {
 
 <BaseLayout
   title={`${product.title} | Dental ${product.category} | OralEquip`}
-  description={`${product.title} — clinic-tested ${product.category.toLowerCase()} approved by HI SMILE DENTAL. Request a B2B quote from OralEquip today.`}
+  description={`${product.title} — clinic-tested ${product.category.toLowerCase()} approved by ORALEQUIP. Request a B2B quote from OralEquip today.`}
   ogImage={product.image.url}
   jsonLd={[productJsonLd, breadcrumbJsonLd]}
 >

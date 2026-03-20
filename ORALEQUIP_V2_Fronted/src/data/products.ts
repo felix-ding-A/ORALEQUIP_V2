@@ -33,7 +33,7 @@ export const products: Product[] = [
         ],
         description: [
             block('Professional-grade dental mirror set with anti-fog coating and ergonomic handles. Designed for optimal visibility during examinations and procedures. Each mirror features a double-sided reflective surface with a 5× magnification option.', 'b1'),
-            block('Recommended by HI SMILE DENTAL doctors after 18 months of clinical use across hundreds of patient examinations. The ergonomic handle design significantly reduces hand fatigue during long procedures.', 'b2'),
+            block('Recommended by ORALEQUIP doctors after 18 months of clinical use across hundreds of patient examinations. The ergonomic handle design significantly reduces hand fatigue during long procedures.', 'b2'),
         ],
         specs: [
             { label: 'Material', value: 'Medical-grade stainless steel' },

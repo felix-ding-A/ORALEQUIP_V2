@@ -53,7 +53,7 @@ export const post = defineType({
             name: 'clinic',
             title: 'Clinic',
             type: 'string',
-            initialValue: 'HI SMILE DENTAL',
+            initialValue: 'ORALEQUIP',
         }),
         defineField({
             name: 'date',

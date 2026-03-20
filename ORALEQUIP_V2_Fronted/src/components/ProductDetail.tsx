@@ -83,7 +83,7 @@ export function ProductDetail({ product, related }: Props) {
                         className="flex items-center gap-2 mt-6 px-4 py-3 rounded-xl text-sm"
                         style={{ background: 'rgba(255,224,130,0.2)', color: 'var(--muted-foreground)' }}
                     >
-                        🛡️&nbsp;<span>Approved by <strong style={{ color: 'var(--foreground)' }}>HI SMILE DENTAL</strong> — Clinic-tested and verified</span>
+                        🛡️&nbsp;<span>Approved by <strong style={{ color: 'var(--foreground)' }}>ORALEQUIP</strong> — Clinic-tested and verified</span>
                     </div>
                 </div>
             </div>
