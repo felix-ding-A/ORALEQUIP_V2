@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
     site: 'https://oralequip.com',
@@ -9,7 +10,10 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    output: 'static',
+    output: 'hybrid',
+    adapter: vercel({
+        webAnalytics: { enabled: true }
+    }),
     image: {
         domains: ['images.unsplash.com'],
     },

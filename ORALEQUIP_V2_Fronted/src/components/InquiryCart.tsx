@@ -9,6 +9,7 @@ export default function InquiryCart() {
     email: '',
     company: '',
     country: '',
+    whatsapp: '',
     requirements: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,7 +21,6 @@ export default function InquiryCart() {
     setIsSubmitting(true);
     
     try {
-      // Future Phase 3 Endpoint calling
       const response = await fetch('/api/submit-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,14 +30,16 @@ export default function InquiryCart() {
       if (response.ok) {
         alert("Your inquiry has been submitted successfully! Our team will contact you shortly.");
         clearInquiryCart();
-        setFormData({ name: '', email: '', company: '', country: '', requirements: ''});
+        setFormData({ name: '', email: '', company: '', country: '', whatsapp: '', requirements: ''});
         window.location.href = '/';
       } else {
-        alert("There was an error submitting your inquiry. We are currently setting up the backend (Phase 3).");
+        const err = await response.json();
+        console.error("Server Error:", err);
+        alert(`There was an error submitting your inquiry. Please check the console or ensure Feishu columns match.`);
       }
     } catch (error) {
       console.error(error);
-      alert("Note: Backend API is not yet live. Your form would normally be submitted here.");
+      alert("Network error. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -183,6 +185,17 @@ export default function InquiryCart() {
                   placeholder="United States"
                 />
               </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-semibold mb-2" style={{ color: 'var(--foreground)' }}>WhatsApp / TEL</label>
+              <input 
+                type="tel" 
+                value={formData.whatsapp} onChange={e => setFormData({...formData, whatsapp: e.target.value})}
+                className="w-full border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-shadow" 
+                style={{ borderColor: 'var(--border)', backgroundColor: 'var(--background)' }}
+                placeholder="+1 (123) 456-7890"
+              />
             </div>
             
             <div>
