@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CartBadge from '../components/CartBadge';
 
 export interface Props {
   title: string;
@@ -70,5 +71,6 @@ const siteName = 'OralEquip — ORALEQUIP';
   </head>
   <body>
     <slot />
+    <CartBadge client:load />
   </body>
 </html>

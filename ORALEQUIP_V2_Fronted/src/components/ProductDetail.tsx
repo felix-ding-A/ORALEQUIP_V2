@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import RichText from './RichText';
+import AddToCart from './AddToCart';
 import type { Product } from '../types';
 
 interface Props {
@@ -71,13 +72,15 @@ export function ProductDetail({ product, related }: Props) {
                         <RichText value={product.description} />
                     </div>
 
-                    <a
-                        href="mailto:info@oralequip.com"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-xl hover:opacity-90 transition-opacity mb-4 font-semibold text-base"
-                        style={{ background: 'var(--primary)' }}
-                    >
-                        ✉️ Request a Quote / Contact Us
-                    </a>
+                    <AddToCart 
+                        product={{
+                            id: product._id,
+                            name: product.title,
+                            sku: product.slug?.current,
+                            imageUrl: product.image?.url
+                        }} 
+                        className="w-full sm:w-auto mb-4" 
+                    />
 
                     <div
                         className="flex items-center gap-2 mt-6 px-4 py-3 rounded-xl text-sm"
