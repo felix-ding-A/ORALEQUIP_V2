@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import InquiryCart from '../components/InquiryCart';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Request a Quote | ORALEQUIP',
+  description: 'Review your selected dental products and request a bulk quote from ORALEQUIP.',
+};
+---
+
+<BaseLayout
+  title="Request a B2B Quote | ORALEQUIP"
+  description="Review your selected dental consumables and equipment and submit a bulk inquiry to the ORALEQUIP sales team."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <main class="min-h-screen pt-8 pb-20 md:py-16" style="background: var(--background);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="mb-10 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4 text-sm font-semibold" style="background: rgba(77,182,172,0.1); color: var(--primary);">
+          📦 B2B Purchasing
+        </div>
+        <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl mb-4" style="color: var(--foreground); line-height: 1.2;">
+          Your Inquiry List
+        </h1>
+        <p class="text-lg max-w-2xl" style="color: var(--muted-foreground); line-height: 1.6;">
+          Review the products you've selected below, adjust quantities if needed, and submit your details to receive a custom wholesale quote directly from our team.
+        </p>
+      </div>
+
+      <!-- React Application: The Cart and Form -->
+      <InquiryCart client:load />
+      
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
