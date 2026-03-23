@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '@nanostores/react';
 import { inquiryItemCount } from '../store/inquiryStore';
 import { ClipboardList } from 'lucide-react';
 
 export default function CartBadge() {
   const count = useStore(inquiryItemCount);
+  const [isMounted, setIsMounted] = useState(false);
 
-  if (count === 0) return null;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted || count === 0) return null;
 
   return (
     <a
