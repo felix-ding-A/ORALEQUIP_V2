@@ -4,10 +4,10 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 const timeline = [
-  { year: '2015', title: 'ORALEQUIP Opens', desc: 'Our founding doctors opened a small but ambitious dental clinic in Los Angeles, focused on delivering exceptional patient care.' },
-  { year: '2018', title: 'Material Testing Begins', desc: 'Frustrated with inconsistent supply quality, our doctors began systematically testing and documenting every material used in the clinic.' },
-  { year: '2021', title: 'OralEquip is Born', desc: 'With a curated list of 200+ clinic-approved products, we launched OralEquip to share our findings with dental professionals worldwide.' },
-  { year: '2026', title: 'Global Reach', desc: 'Today, over 500 clinics across 30 countries trust OralEquip for their dental supply needs, all backed by our doctors\' seal of approval.' },
+  { year: '2014', title: 'Professional Entry', desc: 'Graduated with a BDS degree and began her clinical practice, focusing on foundational dentistry and orthodontic principles.' },
+  { year: '2019', title: 'Clinical Specialization', desc: 'Deepened her expertise in orthodontic treatments, managing complex cases with a focus on long-term oral health and aesthetics.' },
+  { year: '2022', title: 'Digital Integration', desc: 'Adopted advanced digital diagnostic tools to improve treatment accuracy and provide a more comfortable experience for her patients.' },
+  { year: '2025', title: 'Founding the Practice', desc: 'Established her private clinic, creating a professional space where clinical experience meets modern dental equipment and care.' },
 ];
 
 const standards = [
@@ -81,6 +81,37 @@ const aboutJsonLd = {
                 <p class="text-xs" style="color: var(--muted-foreground);">Trust our selection</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOUNDER PROFILE ═══ -->
+    <section class="py-16 md:py-20" style="background: var(--background);">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border" style="border-color: var(--border);">
+          <div class="flex flex-col md:flex-row gap-8 items-center md:items-start mb-8">
+            <div class="w-32 h-32 md:w-40 md:h-40 shrink-0">
+              <img 
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" 
+                alt="Dr. Song" 
+                class="w-full h-full rounded-full object-cover border-4 border-[var(--primary)] shadow-md"
+                loading="lazy"
+              />
+            </div>
+            <div class="text-center md:text-left pt-2 md:pt-6">
+              <h2 class="font-bold mb-2" style="color: var(--foreground); font-size: clamp(24px, 3vw, 36px);">
+                Dr. Song, BDS
+              </h2>
+              <p class="text-lg font-medium" style="color: var(--primary);">
+                Specialist in Orthodontics
+              </p>
+            </div>
+          </div>
+          <div style="color: var(--muted-foreground); font-size: 18px; line-height: 1.8;">
+            <p>
+              Dr. Song is a dedicated orthodontist with over 12 years of clinical experience. After earning her Bachelor of Dental Surgery (BDS) from Changzhi Medical College, she has focused her career on the intersection of precision orthodontics and patient-centered care. Her approach emphasizes stable, functional results through the thoughtful integration of modern dental technology.
+            </p>
           </div>
         </div>
       </div>
