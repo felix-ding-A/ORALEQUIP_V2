@@ -33,7 +33,6 @@ export default function InquiryCart() {
       });
       
       if (response.ok) {
-        alert("Your inquiry has been submitted successfully! Our team will contact you shortly.");
         clearInquiryCart();
         setFormData({ name: '', email: '', company: '', country: '', whatsapp: '', requirements: ''});
         window.location.href = '/';
