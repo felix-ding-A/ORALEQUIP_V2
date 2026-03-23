@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '@nanostores/react';
 import { inquiryCart, updateInquiryQuantity, removeInquiryItem, clearInquiryCart } from '../store/inquiryStore';
 
@@ -13,6 +13,11 @@ export default function InquiryCart() {
     requirements: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,6 +49,10 @@ export default function InquiryCart() {
       setIsSubmitting(false);
     }
   };
+
+  if (!isMounted) {
+    return <div className="text-center py-20 animate-pulse text-gray-400">Loading your inquiry list...</div>;
+  }
 
   if (cartItems.length === 0) {
     return (

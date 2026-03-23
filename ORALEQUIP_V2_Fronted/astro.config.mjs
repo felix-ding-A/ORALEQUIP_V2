@@ -11,9 +11,7 @@ export default defineConfig({
         plugins: [tailwindcss()],
     },
     output: 'static',
-    adapter: vercel({
-        webAnalytics: { enabled: true }
-    }),
+    adapter: vercel(),
     image: {
         domains: ['images.unsplash.com'],
     },
