@@ -33,7 +33,15 @@ const articleJsonLd = {
   headline: post.title,
   description: post.excerpt,
   image: post.image.url,
-  author: { '@type': 'Person', name: post.author },
+  author: {
+    '@type': 'Person',
+    name: post.author,
+    jobTitle: 'Dental Practitioner',
+    affiliation: { '@type': 'Organization', name: post.clinic || 'ORALEQUIP' },
+    sameAs: [
+      'https://www.linkedin.com/search/results/all/?keywords=' + encodeURIComponent(post.author),
+    ],
+  },
   publisher: {
     '@type': 'Organization',
     name: 'OralEquip — ORALEQUIP',

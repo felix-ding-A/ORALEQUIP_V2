@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Product } from '../types';
 
 const CATEGORIES = ['All', 'Instruments', 'Equipment', 'Consumables'] as const;
@@ -11,6 +11,35 @@ interface Props {
 export function ProductFilter({ products }: Props) {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
     const [selectedMaterial, setSelectedMaterial] = useState<string>('All');
+
+    // Sync state with URL on mount
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const cat = params.get('cat');
+        const mat = params.get('mat');
+        if (cat && CATEGORIES.includes(cat as any)) setSelectedCategory(cat);
+        if (mat && MATERIALS.includes(mat as any)) setSelectedMaterial(mat);
+    }, []);
+
+    // Update URL when state changes
+    const handleCategoryChange = (cat: string) => {
+        setSelectedCategory(cat);
+        setCurrentPage(1);
+        const url = new URL(window.location.href);
+        if (cat === 'All') url.searchParams.delete('cat');
+        else url.searchParams.set('cat', cat);
+        window.history.pushState({}, '', url);
+    };
+
+    const handleMaterialChange = (mat: string) => {
+        setSelectedMaterial(mat);
+        setCurrentPage(1);
+        const url = new URL(window.location.href);
+        if (mat === 'All') url.searchParams.delete('mat');
+        else url.searchParams.set('mat', mat);
+        window.history.pushState({}, '', url);
+    };
+
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 12;
@@ -36,7 +65,7 @@ export function ProductFilter({ products }: Props) {
                         {CATEGORIES.map((cat) => (
                             <button
                                 key={cat}
-                                onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }}
+                                onClick={() => handleCategoryChange(cat)}
                                 className={`block w-full text-left px-3 py-2 rounded-xl transition-colors text-sm ${selectedCategory === cat
                                         ? 'font-semibold'
                                         : ''
@@ -57,7 +86,7 @@ export function ProductFilter({ products }: Props) {
                         {MATERIALS.map((mat) => (
                             <button
                                 key={mat}
-                                onClick={() => { setSelectedMaterial(mat); setCurrentPage(1); }}
+                                onClick={() => handleMaterialChange(mat)}
                                 className={`block w-full text-left px-3 py-2 rounded-xl transition-colors text-sm`}
                                 style={{
                                     background: selectedMaterial === mat ? 'rgba(77,182,172,0.1)' : 'transparent',
@@ -120,7 +149,7 @@ export function ProductFilter({ products }: Props) {
                             No products match your current filters.
                         </p>
                         <button
-                            onClick={() => { setSelectedCategory('All'); setSelectedMaterial('All'); setCurrentPage(1); }}
+                            onClick={() => { handleCategoryChange('All'); handleMaterialChange('All'); }}
                             className="mt-4 text-sm font-medium underline"
                             style={{ color: 'var(--primary)' }}
                         >

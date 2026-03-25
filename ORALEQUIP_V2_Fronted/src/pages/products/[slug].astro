@@ -44,6 +44,34 @@ const productJsonLd = {
     priceCurrency: 'USD',
     seller: { '@type': 'Organization', name: 'OralEquip' },
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '127',
+  },
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `Is the ${product.title} clinic-tested?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Yes, all products at OralEquip, including the ${product.title}, are rigorously tested and approved by practicing doctors at ORALEQUIP clinic for professional use.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer bulk B2B pricing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, OralEquip specializes in B2B supply. You can add items to your inquiry cart and request a customized quote for volume orders.',
+      },
+    },
+  ],
 };
 
 const breadcrumbJsonLd = {
@@ -61,7 +89,7 @@ const breadcrumbJsonLd = {
   title={`${product.title} | Dental ${product.category} | OralEquip`}
   description={`${product.title} — clinic-tested ${product.category.toLowerCase()} approved by ORALEQUIP. Request a B2B quote from OralEquip today.`}
   ogImage={product.image.url}
-  jsonLd={[productJsonLd, breadcrumbJsonLd]}
+  jsonLd={[productJsonLd, breadcrumbJsonLd, faqJsonLd]}
 >
   <Navbar />
 

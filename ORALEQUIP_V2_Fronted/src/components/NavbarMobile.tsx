@@ -3,9 +3,10 @@ import { Menu, X } from 'lucide-react';
 
 const links = [
     { href: '/', label: 'Home' },
-    { href: '/products', label: 'Products' },
-    { href: '/blog', label: 'Blog & Insights' },
-    { href: '/about', label: 'About Us' },
+    { href: '/products?cat=Instruments', label: 'Instruments' },
+    { href: '/products?cat=Equipment', label: 'Equipment' },
+    { href: '/products', label: 'All Products' },
+    { href: '/blog', label: 'Blog' },
 ];
 
 export function NavbarMobile({ currentPath }: { currentPath: string }) {

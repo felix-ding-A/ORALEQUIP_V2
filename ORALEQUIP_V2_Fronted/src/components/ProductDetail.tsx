@@ -12,6 +12,7 @@ const TABS = [
     { key: 'specs', label: 'Specifications' },
     { key: 'clinical', label: 'Clinical Applications' },
     { key: 'features', label: 'Features' },
+    { key: 'faq', label: 'FAQ' },
 ] as const;
 
 type TabKey = typeof TABS[number]['key'];
@@ -153,6 +154,26 @@ export function ProductDetail({ product, related }: Props) {
                                 </li>
                             ))}
                         </ul>
+                    )}
+                    {activeTab === 'faq' && (
+                        <div className="space-y-6">
+                            <div className="border-b pb-4" style={{ borderColor: 'var(--border)' }}>
+                                <h4 className="font-bold mb-2 text-sm" style={{ color: 'var(--foreground)' }}>
+                                    Is the {product.title} clinic-tested?
+                                </h4>
+                                <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+                                    Yes, all products at OralEquip, including the {product.title}, are rigorously tested and approved by practicing doctors at ORALEQUIP clinic for professional use.
+                                </p>
+                            </div>
+                            <div className="border-b pb-4" style={{ borderColor: 'var(--border)' }}>
+                                <h4 className="font-bold mb-2 text-sm" style={{ color: 'var(--foreground)' }}>
+                                    Do you offer bulk B2B pricing?
+                                </h4>
+                                <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+                                    Yes, OralEquip specializes in B2B supply. You can add items to your inquiry cart and request a customized quote for volume orders.
+                                </p>
+                            </div>
+                        </div>
                     )}
                 </div>
             </div>
