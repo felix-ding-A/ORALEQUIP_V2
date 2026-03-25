@@ -24,6 +24,11 @@ export interface ProductSpec {
     value: string;
 }
 
+export interface ProductFAQ {
+    question: string;
+    answer: string;
+}
+
 // Product — 1:1 mapping to future Sanity product schema
 export interface Product {
     _id: string;
@@ -37,6 +42,7 @@ export interface Product {
     specs: ProductSpec[];
     clinicalApplications: string[];
     features: string[];
+    faqs?: ProductFAQ[];
 }
 
 // BlogPost — 1:1 mapping to future Sanity post schema

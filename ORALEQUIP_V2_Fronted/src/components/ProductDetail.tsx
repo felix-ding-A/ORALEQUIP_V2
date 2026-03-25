@@ -157,22 +157,25 @@ export function ProductDetail({ product, related }: Props) {
                     )}
                     {activeTab === 'faq' && (
                         <div className="space-y-6">
-                            <div className="border-b pb-4" style={{ borderColor: 'var(--border)' }}>
-                                <h4 className="font-bold mb-2 text-sm" style={{ color: 'var(--foreground)' }}>
-                                    Is the {product.title} clinic-tested?
-                                </h4>
-                                <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
-                                    Yes, all products at OralEquip, including the {product.title}, are rigorously tested and approved by practicing doctors at ORALEQUIP clinic for professional use.
-                                </p>
-                            </div>
-                            <div className="border-b pb-4" style={{ borderColor: 'var(--border)' }}>
-                                <h4 className="font-bold mb-2 text-sm" style={{ color: 'var(--foreground)' }}>
-                                    Do you offer bulk B2B pricing?
-                                </h4>
-                                <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
-                                    Yes, OralEquip specializes in B2B supply. You can add items to your inquiry cart and request a customized quote for volume orders.
-                                </p>
-                            </div>
+                            {(product.faqs?.length ? product.faqs : [
+                                {
+                                    question: `Is the ${product.title} clinic-tested?`,
+                                    answer: `Yes, all products at OralEquip, including the ${product.title}, are rigorously tested and approved by practicing doctors at ORALEQUIP clinic for professional use.`
+                                },
+                                {
+                                    question: 'Do you offer bulk B2B pricing?',
+                                    answer: 'Yes, OralEquip specializes in B2B supply. You can add items to your inquiry cart and request a customized quote for volume orders.'
+                                }
+                            ]).map((faq: any, i: number) => (
+                                <div key={i} className="border-b pb-4 last:border-0" style={{ borderColor: 'var(--border)' }}>
+                                    <h4 className="font-bold mb-2 text-sm" style={{ color: 'var(--foreground)' }}>
+                                        {faq.question}
+                                    </h4>
+                                    <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+                                        {faq.answer}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     )}
                 </div>

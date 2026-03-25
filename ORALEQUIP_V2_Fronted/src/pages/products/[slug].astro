@@ -17,7 +17,11 @@ export async function getStaticPaths() {
     description,
     specs,
     clinicalApplications,
-    features
+    features,
+    faqs[] {
+      question,
+      answer
+    }
   }`;
 
   const products = await sanityClient.fetch(query);
@@ -51,27 +55,28 @@ const productJsonLd = {
   },
 };
 
+const displayFaqs = product.faqs?.length ? product.faqs : [
+  {
+    question: `Is the ${product.title} clinic-tested?`,
+    answer: `Yes, all products at OralEquip, including the ${product.title}, are rigorously tested and approved by practicing doctors at ORALEQUIP clinic for professional use.`,
+  },
+  {
+    question: 'Do you offer bulk B2B pricing?',
+    answer: 'Yes, OralEquip specializes in B2B supply. You can add items to your inquiry cart and request a customized quote for volume orders.',
+  },
+];
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: `Is the ${product.title} clinic-tested?`,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: `Yes, all products at OralEquip, including the ${product.title}, are rigorously tested and approved by practicing doctors at ORALEQUIP clinic for professional use.`,
-      },
+  mainEntity: displayFaqs.map((f: any) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
     },
-    {
-      '@type': 'Question',
-      name: 'Do you offer bulk B2B pricing?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, OralEquip specializes in B2B supply. You can add items to your inquiry cart and request a customized quote for volume orders.',
-      },
-    },
-  ],
+  })),
 };
 
 const breadcrumbJsonLd = {
