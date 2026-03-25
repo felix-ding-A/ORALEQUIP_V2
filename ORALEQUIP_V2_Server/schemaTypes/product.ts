@@ -110,5 +110,23 @@ export const product = defineType({
             type: 'array',
             of: [{ type: 'string' }],
         }),
+        defineField({
+            name: 'faqs',
+            title: 'Frequently Asked Questions',
+            type: 'array',
+            of: [
+                {
+                    type: 'object',
+                    name: 'faqItem',
+                    fields: [
+                        { name: 'question', type: 'string', title: 'Question' },
+                        { name: 'answer', type: 'text', title: 'Answer' }
+                    ],
+                    preview: {
+                        select: { title: 'question', subtitle: 'answer' }
+                    }
+                }
+            ]
+        }),
     ],
 })
