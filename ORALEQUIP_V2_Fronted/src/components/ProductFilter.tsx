@@ -162,7 +162,7 @@ export function ProductFilter({ products }: Props) {
                             {paginatedProducts.map((product) => (
                                 <a
                                     key={product._id}
-                                    href={`/products/${product.slug.current}`}
+                                    href={`/premium-selection/${product.slug.current}`}
                                     className="group bg-white rounded-2xl overflow-hidden border hover:shadow-lg transition-all hover:-translate-y-1"
                                     style={{ borderColor: 'var(--border)' }}
                                 >

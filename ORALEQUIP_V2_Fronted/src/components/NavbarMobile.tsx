@@ -3,9 +3,8 @@ import { Menu, X } from 'lucide-react';
 
 const links = [
     { href: '/', label: 'Home' },
-    { href: '/products?cat=Instruments', label: 'Instruments' },
-    { href: '/products?cat=Equipment', label: 'Equipment' },
-    { href: '/products', label: 'All Products' },
+    { href: '/premium-selection', label: 'Premium Selection' },
+    { href: '/about', label: 'About Us' },
     { href: '/blog', label: 'Blog' },
 ];
 

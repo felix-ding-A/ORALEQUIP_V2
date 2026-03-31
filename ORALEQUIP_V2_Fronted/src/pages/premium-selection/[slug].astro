@@ -84,8 +84,8 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://oralequip.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://oralequip.com/products' },
-    { '@type': 'ListItem', position: 3, name: product.title, item: `https://oralequip.com/products/${product.slug.current}` },
+    { '@type': 'ListItem', position: 2, name: 'Premium Selection', item: 'https://oralequip.com/premium-selection' },
+    { '@type': 'ListItem', position: 3, name: product.title, item: `https://oralequip.com/premium-selection/${product.slug.current}` },
   ],
 };
 ---
@@ -105,7 +105,7 @@ const breadcrumbJsonLd = {
       <nav class="flex items-center gap-1 text-sm mb-8" style="color: var(--muted-foreground);" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[var(--primary)] transition-colors">Home</a>
         <span>›</span>
-        <a href="/products" class="hover:text-[var(--primary)] transition-colors">Products</a>
+        <a href="/premium-selection" class="hover:text-[var(--primary)] transition-colors">Premium Selection</a>
         <span>›</span>
         <span style="color: var(--foreground);">{product.title}</span>
       </nav>

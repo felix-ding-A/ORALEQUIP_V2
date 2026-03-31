@@ -61,7 +61,7 @@ export default function InquiryCart() {
         <p className="mb-8 max-w-md mx-auto" style={{ color: 'var(--muted-foreground)' }}>
           You haven't added any products to your quote list yet. Browse our professional dental catalog and add the items you need.
         </p>
-        <a href="/products" className="inline-flex bg-[var(--primary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:opacity-90 shadow-md">
+        <a href="/premium-selection" className="inline-flex bg-[var(--primary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:opacity-90 shadow-md">
           Browse Products
         </a>
       </div>
@@ -95,7 +95,7 @@ export default function InquiryCart() {
                 )}
               </div>
               <div className="flex-1 w-full">
-                <a href={`/products/${item.sku}`} className="font-semibold text-base mb-1 hover:underline block truncate" style={{ color: 'var(--foreground)' }}>
+                <a href={`/premium-selection/${item.sku}`} className="font-semibold text-base mb-1 hover:underline block truncate" style={{ color: 'var(--foreground)' }}>
                   {item.name}
                 </a>
                 {item.sku && <p className="text-xs mb-3" style={{ color: 'var(--muted-foreground)' }}>SKU: {item.sku}</p>}

@@ -191,7 +191,7 @@ export function ProductDetail({ product, related }: Props) {
                         {related.map((p) => (
                             <a
                                 key={p._id}
-                                href={`/products/${p.slug.current}`}
+                                href={`/premium-selection/${p.slug.current}`}
                                 className="group bg-white rounded-2xl overflow-hidden border hover:shadow-lg transition-all hover:-translate-y-1"
                                 style={{ borderColor: 'var(--border)' }}
                             >
