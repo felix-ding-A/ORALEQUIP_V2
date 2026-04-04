@@ -69,68 +69,71 @@ const trustPillars = [
   <Navbar />
 
   <main>
-    <!-- ═══ HERO SECTION ═══ -->
-    <section class="relative overflow-hidden" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--background) 50%, #E8F5E9 100%);">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Left: Copy -->
-          <div>
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-sm font-medium" style="background: var(--primary)1a; color: var(--primary); background-color: rgba(77,182,172,0.12);">
-              🛡️ Trusted by 500+ dental clinics
-            </div>
-            <h1 class="text-[var(--foreground)] mb-6 font-bold" style="font-size: clamp(28px, 4vw, 48px); line-height: 1.2;">
-              High-Quality Dental Consumables & Compact Equipment for Professionals
-            </h1>
-            <p class="text-[var(--muted-foreground)] mb-8" style="font-size: 18px; line-height: 1.7;">
-              Discover clinic-tested dental instruments, equipment, and consumables — handpicked by practicing dentists for outstanding patient outcomes.
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <a
-              href="/premium-selection"
-                class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl hover:opacity-90 transition-opacity font-semibold"
-                style="background: var(--primary);"
-              >
-                Explore Products →
-              </a>
-              <a
-                href="/about"
-                class="inline-flex items-center gap-2 bg-white text-[var(--foreground)] px-6 py-3 rounded-xl border hover:bg-[var(--muted)] transition-colors font-medium"
-              >
-                Our Story
-              </a>
-            </div>
-          </div>
+    <!-- ═══ HERO SECTION Redesign ═══ -->
+    <section class="relative min-h-[600px] flex items-center overflow-hidden bg-slate-900">
+      <!-- Full-Width Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/image/Dr song's dental clinic.webp"
+          alt="Dr song's dental clinic - Professional ORALEQUIP medical staff smiling"
+          class="w-full h-full object-cover opacity-80"
+          loading="eager"
+          fetchpriority="high"
+          width="1920"
+          height="1080"
+        />
+        <!-- Sophisticated Gradient Overlay for readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+      </div>
 
-          <!-- Right: Image -->
-          <div class="relative">
-            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white" style="box-shadow: 0 25px 50px rgba(77,182,172,0.15);">
-              <img
-                src="/image/Dr song's dental clinic.webp"
-                alt="Dr song's dental clinic - Professional ORALEQUIP medical staff smiling"
-                class="w-full object-cover"
-                style="height: 400px;"
-                loading="eager"
-                fetchpriority="high"
-                width="800"
-                height="400"
-              />
-            </div>
-            <!-- Floating badge -->
-            <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg px-5 py-3 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl" style="background: var(--accent);">
-                ⭐
-              </div>
-              <div>
-                <p class="text-[var(--foreground)] font-bold text-sm">4.9/5 Rating</p>
-                <p class="text-[var(--muted-foreground)] text-xs">Based on Patient Smiles</p>
-              </div>
-            </div>
+      <!-- Hero Content -->
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div class="max-w-2xl transform transition-all duration-700 ease-out translate-y-0 opacity-100">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-sm font-bold bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-xl">
+            <span class="flex h-2 w-2 rounded-full bg-[#4DB6AC] animate-pulse"></span>
+            🛡️ Trusted by 500+ dental clinics
+          </div>
+          <h1 class="text-white mb-6 font-extrabold leading-[1.1] drop-shadow-2xl" style="font-size: clamp(36px, 5vw, 64px);">
+            High-Quality Dental <span class="text-[#4DB6AC]">Consumables</span> & Compact Equipment
+          </h1>
+          <p class="text-white/90 mb-10 text-lg md:text-xl leading-relaxed max-w-xl font-medium drop-shadow-lg">
+            Discover clinic-tested dental instruments, equipment, and consumables — handpicked by practicing dentists for outstanding patient outcomes.
+          </p>
+          <div class="flex flex-wrap gap-5">
+            <a
+              href="/premium-selection"
+              class="group relative inline-flex items-center gap-3 bg-[#4DB6AC] text-white px-8 py-4 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#4DB6AC]/40"
+            >
+              Explore Products
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a
+              href="/about"
+              class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/20 transition-all shadow-xl"
+            >
+              Our Story
+            </a>
           </div>
         </div>
       </div>
-      <!-- Decorative blobs -->
-      <div class="absolute top-20 right-0 w-72 h-72 rounded-full pointer-events-none blur-3xl" style="background: rgba(77,182,172,0.06);"></div>
-      <div class="absolute bottom-0 left-20 w-48 h-48 rounded-full pointer-events-none blur-3xl" style="background: rgba(255,224,130,0.2);"></div>
+
+      <!-- Premium Floating Badge -->
+      <div class="absolute bottom-10 right-8 md:right-12 z-10 hidden sm:flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 shadow-2xl animate-bounce-subtle">
+        <div class="w-14 h-14 rounded-2xl bg-[#FFE082] flex items-center justify-center text-3xl shadow-inner">
+          ⭐
+        </div>
+        <div>
+          <p class="text-white font-black text-lg leading-tight">4.9/5 Rating</p>
+          <p class="text-white/60 text-xs font-bold uppercase tracking-widest">Global Trusted</p>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+        <span class="text-white/60 text-[10px] font-bold uppercase tracking-tighter">Scroll</span>
+        <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+      </div>
     </section>
 
     <!-- ═══ TRUST / ORALEQUIP SECTION ═══ -->

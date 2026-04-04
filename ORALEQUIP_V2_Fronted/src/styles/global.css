@@ -55,4 +55,12 @@
         border-color: var(--border);
         box-sizing: border-box;
     }
+
+    @keyframes bounce-subtle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .animate-bounce-subtle {
+        animation: bounce-subtle 4s ease-in-out infinite;
+    }
 }
