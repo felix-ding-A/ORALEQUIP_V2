@@ -1,0 +1,26 @@
+---
+interface Props {
+  items: { label: string; href?: string }[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<nav class={`flex items-center gap-1.5 text-sm ${className || ''}`} aria-label="Breadcrumb">
+  <a href="/" class="text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors">Home</a>
+  {items.map((item, index) => (
+    <>
+      <span class="text-[var(--muted-foreground)] font-light opacity-50">›</span>
+      {item.href ? (
+        <a href={item.href} class="text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors">
+          {item.label}
+        </a>
+      ) : (
+        <span class="text-[var(--foreground)] font-medium truncate max-w-[200px] sm:max-w-md">
+          {item.label}
+        </span>
+      )}
+    </>
+  ))}
+</nav>
