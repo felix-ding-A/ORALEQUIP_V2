@@ -8,8 +8,8 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'OralEquip — ORALEQUIP',
-    url: 'https://www.oralequip.com',
-    logo: 'https://www.oralequip.com/favicon.svg',
+    url: Astro.site?.href,
+    logo: new URL('/favicon.svg', Astro.site).href,
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'info@oralequip.com',
@@ -25,7 +25,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'OralEquip',
-    url: 'https://www.oralequip.com',
+    url: Astro.site?.href,
     description: 'B2B dental supplies recommended by ORALEQUIP doctors. Premium instruments, equipment, and consumables.',
   },
 ];

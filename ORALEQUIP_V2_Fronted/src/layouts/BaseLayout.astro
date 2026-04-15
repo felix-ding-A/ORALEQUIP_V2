@@ -13,7 +13,7 @@ export interface Props {
 const {
   title,
   description,
-  ogImage = 'https://www.oralequip.com/og-default.jpg',
+  ogImage = new URL('/og-default.jpg', Astro.site).href,
   canonicalUrl,
   jsonLd,
 } = Astro.props;

@@ -24,8 +24,8 @@ const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.oralequip.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Premium Selection', item: 'https://www.oralequip.com/premium-selection' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: Astro.site?.href },
+    { '@type': 'ListItem', position: 2, name: 'Premium Selection', item: new URL('/premium-selection', Astro.site).href },
   ],
 };
 ---
