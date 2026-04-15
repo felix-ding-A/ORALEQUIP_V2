@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-    site: 'https://oralequip.com',
+    site: 'https://www.oralequip.com',
     integrations: [react(), sitemap()],
     vite: {
         plugins: [tailwindcss()],

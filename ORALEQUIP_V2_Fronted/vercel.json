@@ -1,3 +1,10 @@
 {
-  "redirects": []
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "oralequip.com" }],
+      "destination": "https://www.oralequip.com/:path*",
+      "permanent": true
+    }
+  ]
 }
