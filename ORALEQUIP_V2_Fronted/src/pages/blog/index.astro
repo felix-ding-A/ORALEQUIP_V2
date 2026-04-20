@@ -22,7 +22,6 @@ const blogPosts = await sanityClient.fetch(`*[_type == "post"] | order(_createdA
 }`);
 
 const featuredArticles = blogPosts.filter((p: any) => p.featured);
-const rest = blogPosts.filter((p: any) => !p.featured);
 
 const trendingTopics = [
   'Digital Impressions', '3D Printing', 'AI in Dentistry',
@@ -183,7 +182,7 @@ const breadcrumbJsonLd = {
             Latest Articles
           </h2>
           <div class="grid sm:grid-cols-2 gap-6">
-            {rest.map((article) => (
+            {blogPosts.map((article) => (
               <article class="group bg-white rounded-2xl overflow-hidden border hover:shadow-lg transition-all hover:-translate-y-1" style="border-color: var(--border);">
                 <div class="overflow-hidden" style="aspect-ratio: 16/10;">
                   <img
