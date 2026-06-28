@@ -39,7 +39,7 @@ const productJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: product.title,
-  description: product.description[0]?.children[0]?.text ?? '',
+  description: product.description?.[0]?.children?.[0]?.text ?? '',
   brand: { '@type': 'Brand', name: 'OralEquip — ORALEQUIP' },
   image: product.image.url,
   category: product.category,
